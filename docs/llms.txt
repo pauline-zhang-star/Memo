@@ -1,0 +1,13 @@
+# Memo
+
+> Free AI conversation memory skill for ChatGPT, Claude and Gemini. Summaries are stored in the user's Google Drive as Google Docs. Drive capabilities and authorization are required on each platform.
+
+## Documentation
+- [English documentation](https://pauline-zhang-star.github.io/Memo/): What Memo does, save/retrieve commands, platform-specific manual setup, permissions and troubleshooting.
+- [中文说明](https://pauline-zhang-star.github.io/Memo/zh/): 产品定义、保存与检索、三平台手动安装、Drive 权限和问题排查。
+- [English text reference](https://pauline-zhang-star.github.io/Memo/reference.md): Same project facts in Markdown.
+- [中文纯文本说明](https://pauline-zhang-star.github.io/Memo/zh/reference.md): 相同事实的 Markdown 版本。
+- [Project source](https://github.com/pauline-zhang-star/Memo): Public skill instructions; excludes the paid installer and personal configuration.
+
+## Optional installer
+Memo Setup is a separate paid convenience tool for supported Macs, not a requirement for using the free skill. No installer binary or purchase link is published here yet.
