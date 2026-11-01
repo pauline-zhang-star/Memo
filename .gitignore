@@ -1,0 +1,14 @@
+# Commercial installer and generated artifacts stay outside this repository.
+/installer/
+/dist/
+/verification/
+/outputs/
+/personal/
+*.zip
+*.dmg
+*.pkg
+*.app/
+*.icns
+.env*
+.DS_Store
+__pycache__/
