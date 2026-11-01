@@ -3,6 +3,8 @@
 Save useful conversation summaries to your own Google Drive and recall them in another AI conversation.
 把值得保留的讨论摘要存入自己的 Google Drive，在另一个 AI 对话中找回。
 
+Project site / 项目说明网站：[Memo documentation](https://pauline-zhang-star.github.io/Memo/)
+
 ## Use / 使用
 
 - `/memo` — summarize and save the currently visible discussion. / 总结并保存当前可见的讨论。
