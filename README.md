@@ -1,7 +1,7 @@
 # Memo
 
-Save useful conversation summaries to your own Google Drive and recall them in another AI conversation.
-把值得保留的讨论摘要存入自己的 Google Drive，在另一个 AI 对话中找回。
+Store and find discussion summaries across ChatGPT, Claude and Gemini, and across supported computers, phones and tablets, through your own Google Drive.
+通过自己的 Google Drive，跨 ChatGPT、Claude、Gemini，以及支持的电脑、手机和平板，存储与查找讨论摘要。
 
 Project site / 项目说明网站：[Memo documentation](https://pauline-zhang-star.github.io/Memo/)
 

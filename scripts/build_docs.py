@@ -22,11 +22,12 @@ def plain(text):
 
 def text_reference(lang, data):
     zh = lang == 'zh-CN'
-    lines = ['# Memo — '+('跨平台 AI 对话记忆 skill' if zh else 'Cross-platform AI conversation memory skill'), '',
+    lines = ['# Memo — '+('跨平台、跨设备内容存储与检索 skill' if zh else 'Cross-platform, cross-device memory storage and retrieval skill'), '',
              ('规范页面：' if zh else 'Canonical page: ')+BASE+('zh/' if zh else ''),
              ('项目源码：' if zh else 'Project source: ')+REPO, '', plain(data['quickAnswer']), '',
              '## '+('基本事实' if zh else 'Facts'),
              '- '+plain(data['factPlatforms'])+': ChatGPT, Claude, Gemini',
+             '- '+plain(data['factDevices'])+': '+plain(data['factDevicesValue']),
              '- '+plain(data['factStorage'])+': '+plain(data['factStorageValue']),
              '- '+plain(data['factCost'])+': '+plain(data['factCostValue']),
              '- '+plain(data['factRequirements'])+': '+plain(data['factRequirementsValue']),
@@ -47,8 +48,8 @@ def render(lang):
     zh = lang == 'zh-CN'
     data = ZH if zh else EN
     url = BASE+('zh/' if zh else '')
-    title = 'Memo — 跨平台 AI 对话记忆 Skill | ChatGPT、Claude、Gemini' if zh else 'Memo — AI Conversation Memory Skill for ChatGPT, Claude & Gemini'
-    description = ('免费 Memo skill：将讨论摘要保存到自己的 Google Drive，并在 ChatGPT、Claude、Gemini 中检索。提供中英文规则、手动安装说明、权限与存储核验指南。' if zh else 'Free Memo skill: save conversation summaries to your Google Drive and recall them across ChatGPT, Claude and Gemini. Bilingual rules, manual installation and verification guides.')
+    title = 'Memo — 跨平台、跨设备保存与查找 | ChatGPT、Claude、Gemini' if zh else 'Memo — Cross-Platform, Cross-Device Memory for ChatGPT, Claude & Gemini'
+    description = ('免费 Memo skill：跨 ChatGPT、Claude、Gemini 保存和查找内容，通过自己的 Google Drive 在支持的电脑、手机和平板间找回讨论摘要。含三平台手动安装说明。' if zh else 'Free Memo skill: save and find discussion summaries across ChatGPT, Claude and Gemini, on supported computers, phones and tablets through your own Google Drive. Manual setup guides included.')
     page = TRANSLATABLE.sub(lambda m:'<'+m[1]+m[2]+'>'+ZH[m[3]]+'</'+m[1]+'>', SOURCE) if zh else SOURCE
     page = page.replace('<html lang="en">','<html lang="'+lang+'">')
     page = re.sub(r'<a id="language"[^>]+>.*?</a>', '<a id="language" href="'+('../' if zh else './zh/')+'" lang="'+('en' if zh else 'zh-CN')+'" hreflang="'+('en' if zh else 'zh-CN')+'">'+('English' if zh else '中文')+'</a>',page)
@@ -84,7 +85,7 @@ for language in ['en','zh-CN']: render(language)
 '''+''.join('<url><loc>'+url+'</loc><lastmod>2026-11-01</lastmod><xhtml:link rel="alternate" hreflang="en" href="'+BASE+'"/><xhtml:link rel="alternate" hreflang="zh-CN" href="'+BASE+'zh/"/></url>\n' for url in [BASE,BASE+'zh/'])+'</urlset>\n')
 (OUT/'llms.txt').write_text('''# Memo
 
-> Free AI conversation memory skill for ChatGPT, Claude and Gemini. Summaries are stored in the user's Google Drive as Google Docs. Drive capabilities and authorization are required on each platform.
+> Free skill for storing and finding discussion summaries across ChatGPT, Claude and Gemini, on supported computers, phones and tablets. Records live in the user's Google Drive as Google Docs. The same accessible folder and required platform tools are needed.
 
 ## Documentation
 - [English documentation]('''+BASE+'''): What Memo does, save/retrieve commands, platform-specific manual setup, permissions and troubleshooting.

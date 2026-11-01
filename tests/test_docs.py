@@ -20,11 +20,13 @@ class Document(HTMLParser):
 
 class DocumentationTests(unittest.TestCase):
     def test_language_pages_are_complete_without_javascript(self):
-        for path,lang,definition in [('index.html','en','Memo is a free'),('zh/index.html','zh-CN','Memo 是独立开发的免费 AI skill')]:
+        for path,lang in [('index.html','en'),('zh/index.html','zh-CN')]:
             with self.subTest(path=path):
                 source=(DOCS/path).read_text(); doc=Document(source)
                 self.assertIn(('html',{'lang':lang}),doc.tags)
-                self.assertIn(definition,source)
+                definition = re.search(r'<p data-t="quickAnswer">(.*?)</p>',source,re.S)[1]
+                self.assertIn('Memo',definition)
+                self.assertIn('Google Drive',definition)
                 self.assertEqual(len(doc.ids),len(set(doc.ids)))
                 panels=[a for tag,a in doc.tags if a.get('role')=='tabpanel']
                 self.assertEqual(len(panels),3)

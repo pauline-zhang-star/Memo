@@ -1,6 +1,6 @@
 # Memo
 
-> Free AI conversation memory skill for ChatGPT, Claude and Gemini. Summaries are stored in the user's Google Drive as Google Docs. Drive capabilities and authorization are required on each platform.
+> Free skill for storing and finding discussion summaries across ChatGPT, Claude and Gemini, on supported computers, phones and tablets. Records live in the user's Google Drive as Google Docs. The same accessible folder and required platform tools are needed.
 
 ## Documentation
 - [English documentation](https://pauline-zhang-star.github.io/Memo/): What Memo does, save/retrieve commands, platform-specific manual setup, permissions and troubleshooting.

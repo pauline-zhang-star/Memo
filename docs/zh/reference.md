@@ -1,18 +1,19 @@
-# Memo — 跨平台 AI 对话记忆 skill
+# Memo — 跨平台、跨设备内容存储与检索 skill
 
 规范页面：https://pauline-zhang-star.github.io/Memo/zh/
 项目源码：https://github.com/pauline-zhang-star/Memo
 
-Memo 是独立开发的免费 AI skill，将简洁的讨论摘要保存为你自己 Google Drive 中的 Google Docs。输入 /memo 保存当前可见讨论；输入 /memo 加主题词搜索并读取已有摘要。各平台需要实际提供相应的 Drive 工具。
+Memo 是免费的 AI skill，用于跨 ChatGPT、Claude、Gemini，以及支持的电脑、手机和平板，存储和查找讨论摘要。内容以 Google Docs 保存在自己的 Google Drive 中。输入 /memo 保存，输入 /memo 加主题词搜索并读取。每个平台和设备都需要提供 Memo 及相应的 Drive 能力。
 
 ## 基本事实
 - 适配平台: ChatGPT, Claude, Gemini
+- 适用设备: 支持相应能力的电脑、手机和平板
 - 存储位置: 自己的 Google Drive；原生 Google Docs
 - Skill 价格: 免费；可选安装器单独收费
 - 所需能力: Drive 搜索和读取；保存还需写入或导出
 - 规则版本: 0.4.18
 
-## 现在保存，以后找回。
+## 在一台设备保存， 在另一台设备找回。
 /memo — Memo 总结当前上下文，写入 Drive，读回正文并检查存放位置。回复必须如实说明实际完成的核验。
 /memo topic — Memo 搜索相关记录、读取正文，返回关键决定、未决问题与来源链接。主题是检索关键词，不要求与文档标题完全一致。
 
@@ -36,7 +37,7 @@ https://github.com/pauline-zhang-star/Memo/blob/main/platforms/claude/memo/SKILL
 3. 保存并启用技能，连接可用的 Google Workspace／Drive 集成；检索时明确要求 Memo 在 Google Drive 中查找。
 https://github.com/pauline-zhang-star/Memo/blob/main/platforms/gemini/memo/SKILL.md
 
-## 一个 Memo 文件夹， 一个清晰的记录来源。
+## 一个共享文件夹， 串联不同平台与设备。
 首次使用默认在“我的云端硬盘”根目录创建或复用 Memo 文件夹。各平台使用同一 Google 账号和文件夹，或一个已经明确共享、各平台均可访问的文件夹。
 
 ## FAQ

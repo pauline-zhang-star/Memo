@@ -1,18 +1,19 @@
-# Memo — Cross-platform AI conversation memory skill
+# Memo — Cross-platform, cross-device memory storage and retrieval skill
 
 Canonical page: https://pauline-zhang-star.github.io/Memo/
 Project source: https://github.com/pauline-zhang-star/Memo
 
-Memo is a free, independently developed AI skill that saves concise discussion summaries as Google Docs in your own Google Drive. Use /memo to save the visible discussion, or /memo followed by a topic to search and read previous summaries. Each platform must provide the required Drive tools.
+Memo is a free AI skill for storing and finding discussion summaries across ChatGPT, Claude and Gemini, and across supported computers, phones and tablets. Summaries are saved as Google Docs in your own Google Drive. Use /memo to save, or /memo followed by a topic to search and read them. Each platform and device must provide Memo and the required Drive capabilities.
 
 ## Facts
 - Platforms: ChatGPT, Claude, Gemini
+- Devices: Supported computers, phones and tablets
 - Storage: Your Google Drive; native Google Docs
 - Skill price: Free; the optional installer is separate
 - Requirements: Drive search/read; writing or export for saving
 - Rule version: 0.4.18
 
-## Save now. Recall later.
+## Save on one device. Find it on another.
 /memo — Memo summarizes the current context, writes it to Drive, reads back the body and checks its destination. It must report what was actually verified.
 /memo topic — Memo searches relevant records, reads their content and returns key decisions, open questions and source links. A topic is a search keyword, not an exact document title.
 
@@ -36,7 +37,7 @@ https://github.com/pauline-zhang-star/Memo/blob/main/platforms/claude/memo/SKILL
 3. Save and enable the skill. Connect the available Google Workspace/Drive integration and explicitly ask Memo to search Google Drive when retrieving.
 https://github.com/pauline-zhang-star/Memo/blob/main/platforms/gemini/memo/SKILL.md
 
-## One Memo folder. A clear source of truth.
+## One shared folder. Available wherever your tools work.
 On first use, Memo defaults to creating or reusing a folder named Memo in My Drive root. Use the same Google account and folder across platforms, or an explicitly shared folder each platform can access.
 
 ## FAQ
