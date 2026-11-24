@@ -1,54 +1,45 @@
 # Memo
 
-Store and find discussion summaries across ChatGPT, Claude and Gemini, and across supported computers, phones and tablets, through your own Google Drive.
-通过自己的 Google Drive，跨 ChatGPT、Claude、Gemini，以及支持的电脑、手机和平板，存储与查找讨论摘要。
+Save and find conversation context across **ChatGPT, Claude, Gemini and devices**, using your own Google Drive.
+通过自己的 Google Drive，**跨 AI 平台、跨设备保存和找回讨论内容**。
 
-Project site / 项目说明网站：[Memo documentation](https://pauline-zhang-star.github.io/Memo/)
+![Memo workflow: /memo saves a summary, then /memo website launch recalls it in a new conversation](docs/assets/memo-workflow.gif)
+
+*Illustrative workflow, not a live platform recording. / 流程示意，非真实平台录屏。*
+
+[English guide](https://pauline-zhang-star.github.io/Memo/) · [中文说明](https://pauline-zhang-star.github.io/Memo/zh/)
+
+## Setup in 3 steps / 三步配置
+
+1. **Choose your platform and get its rules. / 选择平台，获取对应规则。**
+   Open the [ChatGPT](platforms/chatgpt/memo/SKILL.md), [Claude](platforms/claude/memo/SKILL.md), or [Gemini](platforms/gemini/memo/SKILL.md) file and download `SKILL.md` using GitHub's raw-file download. / 打开对应平台的文件，通过 GitHub 原始文件下载保存 `SKILL.md`。
+
+2. **Sign in, import and enable Memo. / 登录平台，导入并启用 Memo。**
+   Claude and Gemini: use the Skills import/create interface available in your account. ChatGPT: if plugin import is available, package the ChatGPT rules at `skills/memo/SKILL.md` with this repository's `plugin.json` and `assets/`, then import and install the plugin. Select Memo in your conversation. See the [platform-specific steps](https://pauline-zhang-star.github.io/Memo/#install). / Claude、Gemini 通过账号提供的技能导入或创建入口配置；ChatGPT 若提供插件导入，将对应规则放到 `skills/memo/SKILL.md`，连同 `plugin.json` 和 `assets/` 打包后导入安装。随后在对话中选中 Memo。[分平台详细步骤](https://pauline-zhang-star.github.io/Memo/zh/#install)。
+
+3. **Connect Google Drive and try it. / 连接 Google Drive，试着保存和找回。**
+   Use `/memo` to save the visible discussion. In a new supported chat or on another device, select Memo and enter `/memo topic` to find it. Use the same Google account or an explicitly shared Memo folder. / 输入 `/memo` 保存当前讨论；在支持的新对话或另一台设备上选中 Memo，输入 `/memo 主题` 找回。各平台使用同一 Google 账号，或已明确共享的 Memo 文件夹。
 
 ## Use / 使用
 
-- `/memo` — summarize and save the currently visible discussion. / 总结并保存当前可见的讨论。
-- `/memo topic` — search and read saved summaries about that topic. / 搜索并读取相关主题的摘要。
-
-Select or enable Memo in the platform before invoking it. `/memo` is a text convention; it is not a universally registered native slash command.
-使用前需在对应平台选择或启用 Memo；`/memo` 是文本触发约定，不代表各平台都注册了同名原生命令。
-
-## Files / 文件
-
-| Path | Purpose / 用途 |
+| Command / 输入 | Result / 用途 |
 | --- | --- |
-| `skills/memo/SKILL.md` | Shared Chinese and English workflow / 通用中英文规则 |
-| `platforms/chatgpt/memo/SKILL.md` | ChatGPT adaptation / ChatGPT 适配 |
-| `platforms/claude/memo/SKILL.md` | Claude adaptation / Claude 适配 |
-| `platforms/gemini/memo/SKILL.md` | Gemini adaptation / Gemini 适配 |
-| `plugin.json` | Memo plugin metadata / 插件元数据 |
+| `/memo` | Summarize and save the visible discussion. / 总结并保存当前可见讨论。 |
+| `/memo topic` | Search and read matching saved summaries. / 搜索并读取相关主题的已有摘要。 |
 
-Version / 版本：0.4.18.
+Invocation depends on the platform: use its Memo skill/plugin selector, `/memo`, or `@memo` where supported. These text conventions do not register native commands. / 调用方式以平台定义为准：使用 Memo 技能／插件选择器，或平台支持的 `/memo`、`@memo`；文本约定本身不会注册原生命令。
 
-## Setup / 配置
+## Requirements / 使用条件
 
-Use the skill import or configuration interface actually available on your platform. Platform, subscription and mobile capabilities vary. Connect Google Drive on each platform you use; searches require file search/read tools, and saving also requires real document-writing tools. A skill supplies instructions, not missing connector capabilities.
-通过平台实际提供的技能导入或配置入口使用对应规则。入口和能力随平台、套餐及手机端支持而变化。各平台需连接 Google Drive；检索需要文件搜索和读取工具，保存还需要真实的文档写入能力。Skill 提供工作规则，不能补足平台缺失的工具。
+- Drive search and reading tools are needed for retrieval; saving also needs real document-writing or export tools. / 检索需要 Drive 搜索和读取，保存还需实际的正文写入或导出能力。
+- The default destination is a `Memo` folder in your Drive. Mobile support varies by platform and available tools. / 默认使用 Drive 中的 `Memo` 文件夹；手机端支持情况取决于平台和可用工具。
+- A save is verified only after the body is read back; folder location is checked separately. / 保存需读回正文核验，存储位置另行核对。
+- Keep credentials and personal destination settings out of public rule files. / 不要向公开规则提交凭证或个人文件夹配置。
 
-The default destination is a `Memo` folder in Drive root. Generic rules contain null destination settings. Reuse a verified personal folder configuration when supported; never put private account details, tokens, or personal folder IDs into this repository. Saving succeeds only after the document body is read back and its location is verified.
-默认在 Drive 根目录创建或复用 `Memo` 文件夹。通用规则的存储配置保留 null；平台支持时复用经过验证的个人文件夹配置。不要向仓库提交个人账号、令牌或文件夹 ID。保存成功必须以正文读回和位置核验为依据。
+## Optional installer / 可选安装器
 
-## Commercial installer / 收费安装器
+Prefer automatic setup? Memo Setup is a separate paid installer; sign-in and authorization still require your participation. The free skill works independently. / 不想逐个平台手动配置？可选择单独收费的 Memo Setup 自动安装器，登录与授权仍需自行完成。免费 skill 可独立使用。
 
-This repository publishes the Memo skill rules and documentation only. Memo Setup, the commercial automatic installer, is distributed separately. Its binaries, source code, build scripts and personal installation packages are not included here.
-本仓库仅发布 Memo skill 规则与说明。Memo Setup 自动安装器作为单独的收费产品分发；此处不包含安装器、安装器源码、构建脚本或个人安装包。
+Installer binaries, installer source code and personal packages are not included in this repository. / 本仓库不包含安装包、安装器源码或个人安装包。
 
-Memo is an independent project, not an official product of OpenAI, Anthropic or Google.
-Memo 是独立项目，并非 OpenAI、Anthropic 或 Google 的官方产品。
-
-## Documentation publishing / 文档发布
-
-- English: https://pauline-zhang-star.github.io/Memo/
-- 中文：https://pauline-zhang-star.github.io/Memo/zh/
-- Source templates: `site-src/`; render both languages with `python3 scripts/build_docs.py`.
-- Checks: `python3 -m unittest discover -s tests -v`.
-- GitHub Pages publishes `docs/` from `main`. Both language pages contain the full text without requiring JavaScript. JavaScript only enhances tabs and the optional external purchase link.
-- The sitemap, matching JSON-LD and text references describe the actual visible content. `llms.txt` is an optional navigation aid, not a search-engine requirement or a guarantee of AI citations. No ranking or indexing claims are made.
-- A GitHub project site cannot control the host-level `/robots.txt` from its own `/Memo/` directory. The host-level file was absent (404) and the live page had no `X-Robots-Tag` restriction when checked. No ineffective project-local crawler rules were added.
-
-To measure results, verify the exact site prefix in Google Search Console and Bing Webmaster Tools and submit `https://pauline-zhang-star.github.io/Memo/sitemap.xml`. Those account verifications and submissions have not been performed. Indexing, citations and traffic must be measured after deployment; a passed source check is not proof of visibility in AI answers.
+Version / 规则版本：**0.4.18**. Memo is an independent project, not an official product of OpenAI, Anthropic or Google. / Memo 是独立项目，并非 OpenAI、Anthropic 或 Google 的官方产品。
